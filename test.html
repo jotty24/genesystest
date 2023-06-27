@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Web-Based Chat Application</title>
+    <!-- Insert your Genesys script tag here -->
+    <script
+  id="purecloud-webchat-js"
+  type="text/javascript"
+  src="https://apps.usw2.pure.cloud/webchat/jsapi-v1.js"
+  region="us-west-2"
+  org-guid="9a0e630d-c44b-42ad-af96-1b119ef0bfb4"
+  deployment-key="ee22ec63-a518-4452-85c8-d776df8fce1b"
+></script>
+    <style>
+        .chat-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007bff;
+            color: #fff;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 20px;
+            z-index: 9999;
+        }
+    </style>
+</head>
+<body>
+    <h1>Simple Web-Based Chat Application</h1>
+
+    <!-- Insert any other HTML content here -->
+
+    <!-- Add a chat icon button -->
+    <div class="chat-icon" onclick="openChat()">Chat</div>
+
+    <script>
+        // Initialize the chat widget
+        function initializeChat() {
+            // Create a new Chat Widget instance
+            var chatWidget = new GenesysChatWidget();
+
+            // Configure any customization options or settings
+
+            // Initialize the widget with the provided options
+            chatWidget.initialize();
+        }
+
+        // Open the chat window
+        function openChat() {
+            // Call the Genesys chat function to open the chat window
+            GenesysChatAPI.open();
+        }
+
+        // Load the Genesys script asynchronously
+        function loadGenesysScript() {
+            var script = document.createElement("script");
+            script.src = "https://apps.usw2.pure.cloud/webchat/jsapi-v1.js";
+            script.async = true;
+            script.onload = initializeChat;
+            document.body.appendChild(script);
+        }
+
+        // Call the function to load the Genesys script
+        loadGenesysScript();
+    </script>
+</body>
+</html>
