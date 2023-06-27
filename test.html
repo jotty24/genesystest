@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat Page</title>
+    <!-- Insert your Genesys script tag here -->
+    <script src="https://apps.usw2.pure.cloud/webchat/jsapi-v1.js"></script>
+</head>
+<body>
+    <h1>Chat Page</h1>
+    <div id="chat-container"></div>
+
+    <script>
+        // Customization options
+        var chatOptions = {
+            // Insert any customization options provided by Genesys here
+        };
+
+        // Initialize the chat widget
+        function initializeChat() {
+            // Create a new Chat Widget instance
+            var chatWidget = new GenesysChatWidget();
+
+            // Initialize the widget with the provided container element ID and options
+            chatWidget.initialize("chat-container", chatOptions);
+        }
+
+        // Load the Genesys script asynchronously
+        function loadGenesysScript() {
+            var script = document.createElement("script");
+            script.src = "https://apps.usw2.pure.cloud/webchat/jsapi-v1.js";
+            script.async = true;
+            script.onload = initializeChat;
+            document.body.appendChild(script);
+        }
+
+        // Call the function to load the Genesys script
+        loadGenesysScript();
+    </script>
+</body>
+</html>
